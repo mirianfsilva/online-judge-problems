@@ -1,7 +1,6 @@
 /* ----------------------------------------------
 Mírian Francielle da Silva - 2013048950
 Username: mirianfs | SPOJ.com | Problema: Bits Trocados
-
 ---------------------------------------------- */
 
 #include <iostream>
@@ -26,8 +25,8 @@ int main(){
 		x1 = v;
 		
 		cout << "Teste "<< teste << endl;
-		cout << x50 << ' '<< x10 << ' ' << x5 << ' '<< x1 << endl << endl; 
+		cout << x50 << ' ' << x10 << ' ' << x5 << ' '<< x1 << endl << endl; 
 		teste++;
 	}
-	return 0;
+	return (0);
 }
