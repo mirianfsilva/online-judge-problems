@@ -10,26 +10,26 @@ int max (int a,int b){
   return (a > b) ? a : b;
 }
 
-int calcula(int Nfrases, int pesos[], int valores[], int tamCartao){
-  int desc[Nfrases + 1][tamCartao + 1];
+int CalculaQuantidadeDesculpas(int Nfrases, int pesos[], int valores[], int tamCartao){
+  int desculpas[Nfrases + 1][tamCartao + 1];
 
   for (int i = 0; i <= tamCartao; i++){
-    desc[0][i] = 0;
+    desculpas[0][i] = 0;
   }
   
   for (int i = 0; i <= Nfrases; i++){
-    desc[i][0] = 0;
+    desculpas[i][0] = 0;
   }
 
   for (int i = 1; i <= Nfrases; i++){
     for (int j = 0; j <= tamCartao; j++){
-      desc[i][j] = desc[i - 1][j];
+      desculpas[i][j] = desc[i - 1][j];
       if ((j - pesos[i]) >= 0){
-        desc[i][j] = max(desc[i][j], desc[i-1][j-pesos[i]] + valores[i]);
+        desculpas[i][j] = max(desculpas[i][j], desculpas[i-1][j-pesos[i]] + valores[i]);
       }
     }
   }
-  return desc[Nfrases][tamCartao];
+  return desculpas[Nfrases][tamCartao];
 }
 
 int main(){
@@ -40,7 +40,7 @@ int main(){
     for (int i = 1; i <= Nfrases; i++){
       cin >> pesos[i] >> valores[i];
     }
-    cout << "Teste " << teste << endl << calcula(Nfrases, pesos, valores, tamCartao) << endl << endl;
+    cout << "Teste " << teste << endl << CalculaQuantidadeDesculpas(Nfrases, pesos, valores, tamCartao) << endl << endl;
     teste++;
   }
   return 0;
